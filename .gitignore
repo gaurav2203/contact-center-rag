@@ -2,3 +2,5 @@
 *.env
 .env.*
 cmd.txt
+
+/notebooks/faiss_store/*
