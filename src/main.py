@@ -28,13 +28,18 @@ def process_message(msg: str):
 
 
 @app.post("/chat")
-def chat_endpoint(query: str):
+def chat_endpoint(query: Message):
     from query import RAGSearch
-    tmp= "what is the name of hotel"
-    print(tmp)
     rag_search = RAGSearch("../vector_store/")
-    answer = rag_search.search_and_summarize(tmp, top_k=5)
-    return {"answer": answer}
+    answer = rag_search.search_and_summarize(query.text, top_k=5)
+    return {"response": answer}
+
+
+@app.post("/uppercase")
+def convert_to_uppercase(msg: Message):
+    upper_text = msg.text.upper()
+    return {"result": upper_text}
+
 
 
 # run app

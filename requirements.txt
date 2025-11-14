@@ -18,3 +18,4 @@ langchainhub
 sentence_transformers
 PyPDF2
 docx2txt
+fastapi[standard]
